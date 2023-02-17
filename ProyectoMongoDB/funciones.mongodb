@@ -1,0 +1,57 @@
+// MongoDB Playground
+// To disable this template go to Settings | MongoDB | Use Default Template For Playground.
+// Make sure you are connected to enable completions and to be able to run a playground.
+// Use Ctrl+Space inside a snippet or a string literal to trigger completions.
+
+// Select the database to use.
+use('canastadb');
+
+
+// db.data.find({});
+
+//Cuáles fueron los meses de gobierno de León Febres Cordero, según los documentos de la bd.
+// db.data.find({GOBIERNO: "Leon Febres Cordero"}, {    "YEAR":0,
+//     "COSTO_CANASTA": 0,
+//     "INGRESO_FAMILIAR_MENSUAL": 0,
+//     "RESTRICCION_O_EXCEDENTE_EN_EL_CONSUMO": 0,
+//     "RESTRICCION_EXCENDENTE_PORCENTUAL": 0});
+
+//Quien estaba como gobierno en el año de 1989 y cual fue el ingreso familiar mensual.
+// db.data.find({YEAR: {$eq: 1989}}, {    "RESTRICCION_O_EXCEDENTE_EN_EL_CONSUMO": 0,
+//     "RESTRICCION_EXCENDENTE_PORCENTUAL": 0,
+//         "COSTO_CANASTA": 0,
+//     "MES": 0,});
+
+// db.data.find({ GOBIERNO: {$eq: "Jamil Mahuad W."}}).count();
+//Cual fue el costo de la Canasta básica en el gobierno de Jamil Mahuad W.
+// db.data.find({GOBIERNO: {$eq: "Jamil Mahuad W."}},{ "INGRESO_FAMILIAR_MENSUAL": 0,
+//     "RESTRICCION_O_EXCEDENTE_EN_EL_CONSUMO": 0,
+//     "RESTRICCION_EXCENDENTE_PORCENTUAL": 0,     "MES": 0,
+//     "YEAR": 0});
+
+//En qué gobierno el costo de la Canasta básica fue mayor a 700.
+// db.data.find({COSTO_CANASTA:{$gt: 700}},{    "INGRESO_FAMILIAR_MENSUAL": 0,
+//     "RESTRICCION_O_EXCEDENTE_EN_EL_CONSUMO": 0,
+//     "RESTRICCION_EXCENDENTE_PORCENTUAL": 0,    "MES": 0,
+//     "YEAR": 0});
+
+
+//En qué gobierno el costo de la Canasta básica fue menor a los 200.
+// db.data.find({COSTO_CANASTA:{$lt: 200}},{    "INGRESO_FAMILIAR_MENSUAL": 0,
+//     "RESTRICCION_O_EXCEDENTE_EN_EL_CONSUMO": 0,
+//     "RESTRICCION_EXCENDENTE_PORCENTUAL": 0,    "MES": 0,
+//     "YEAR": 0});
+
+//Cuantos documentos tienen costo de la Canasta básica mayor a 700
+// db.data.find({COSTO_CANASTA:{$gt: 700}}).count();
+
+
+//Cuentos documentos tienen el costo de la Canasta básica menor a los 200.
+// db.data.find({COSTO_CANASTA:{$lt: 200}}).count();
+
+
+
+//Que gobiernos estuvieron antes de 1982 y después del 2008.
+// db.data.find({ $or: [ { YEAR: {$lt: 1982}}, { YEAR: {$gt:2008}} ]});
+
+
